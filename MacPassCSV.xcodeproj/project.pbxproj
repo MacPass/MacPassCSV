@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C97A98923140C6E00BB7698 /* MPCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97A98823140C6E00BB7698 /* MPCSVWriter.m */; };
 		4CBBB3B12313DC35002444D4 /* MPCSVPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBB3B02313DC35002444D4 /* MPCSVPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C97A98723140C6E00BB7698 /* MPCSVWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPCSVWriter.h; sourceTree = "<group>"; };
+		4C97A98823140C6E00BB7698 /* MPCSVWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPCSVWriter.m; sourceTree = "<group>"; };
 		4CBBB3A52313D9DF002444D4 /* MacPassCSV.mpplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacPassCSV.mpplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBBB3A82313D9DF002444D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CBBB3AF2313DC35002444D4 /* MPCSVPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPCSVPlugin.h; sourceTree = "<group>"; };
@@ -50,6 +53,8 @@
 				4CBBB3A82313D9DF002444D4 /* Info.plist */,
 				4CBBB3AF2313DC35002444D4 /* MPCSVPlugin.h */,
 				4CBBB3B02313DC35002444D4 /* MPCSVPlugin.m */,
+				4C97A98723140C6E00BB7698 /* MPCSVWriter.h */,
+				4C97A98823140C6E00BB7698 /* MPCSVWriter.m */,
 			);
 			path = MacPassCSV;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C97A98923140C6E00BB7698 /* MPCSVWriter.m in Sources */,
 				4CBBB3B12313DC35002444D4 /* MPCSVPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +284,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.1;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
 				INFOPLIST_FILE = MacPassCSV/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Application Support/MacPass";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hicknhacksoftware.MacPassCSV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = mpplugin;
 			};
 			name = Debug;
@@ -293,11 +301,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.1;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
 				INFOPLIST_FILE = MacPassCSV/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Application Support/MacPass";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hicknhacksoftware.MacPassCSV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = mpplugin;
 			};
 			name = Release;

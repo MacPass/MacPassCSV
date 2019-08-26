@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MPCSVPlugin : MPPlugin
+@interface MPCSVPlugin : MPPlugin <MPImportPlugin, MPExportPlugin>
 
 @end
 

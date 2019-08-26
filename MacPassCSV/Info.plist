@@ -15,12 +15,12 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>UNDEFINED</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2019 HicknHack Software GmbH. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string></string>
+	<string>MPCSVPlugin</string>
 </dict>
 </plist>

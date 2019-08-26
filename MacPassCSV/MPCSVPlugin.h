@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPPlugin.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MPCSVPlugin : NSObject
+@interface MPCSVPlugin : MPPlugin
 
 @end
 

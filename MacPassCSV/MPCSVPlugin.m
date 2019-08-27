@@ -33,7 +33,7 @@
    Write Files
    */
   
-  NSArray *columns = @[ @"group", @"title", @"username", @"password", @"url", @"notes" ];
+  NSArray *columns = @[ @"Group", @"Title", @"Username", @"Password", @"Url", @"Notes" ];
   
   MPCSVWriter *writer = [[MPCSVWriter alloc] initWithColumnNames:columns];
   

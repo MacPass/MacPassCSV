@@ -63,7 +63,6 @@
     [outData appendData:[@"\n" dataUsingEncoding:NSUTF8StringEncoding]];
     // data
     [outData appendData:[[row componentsJoinedByString:self.separator] dataUsingEncoding:NSUTF8StringEncoding]];
-    isFirst = NO;
   }
   return [outData writeToURL:url options:0 error:error];
 }

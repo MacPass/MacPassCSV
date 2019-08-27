@@ -29,6 +29,8 @@
     self.columns = names;
     self.separator = @",";
     self.rows = [[NSMutableArray alloc] init];
+    /* add columns as first row */
+    [self addRow:self.columns];
   }
   return self;
 }
@@ -48,21 +50,14 @@
 }
 
 - (BOOL)writeToURL:(NSURL *)url error:(NSError * _Nullable __autoreleasing *)error {
+  BOOL isFirstLine = NO;
   NSMutableData *outData = [[NSMutableData alloc] init];
-  
-  // header
-  NSMutableArray *columnNames = [[NSMutableArray alloc] init];
-  for(NSString *columnName in self.columns) {
-    [columnNames addObject:[self _formatValue:columnName]];
-  }
-  [outData appendData:[[columnNames componentsJoinedByString:self.separator] dataUsingEncoding:NSUTF8StringEncoding]];
-  
-  // content
   for(NSArray<NSString *>* row in self.rows) {
-    // newline
-    [outData appendData:[@"\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    // data
+    if(!isFirstLine) {
+     [outData appendData:[@"\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    }
     [outData appendData:[[row componentsJoinedByString:self.separator] dataUsingEncoding:NSUTF8StringEncoding]];
+    isFirstLine = NO;
   }
   return [outData writeToURL:url options:0 error:error];
 }
@@ -72,13 +67,16 @@
   NSMutableString *mutableValue = value.mutableCopy;
   NSRange quoteRange = [mutableValue rangeOfString:@"\""];
   if(quoteRange.location != NSNotFound) {
-    addQuotes = YES;
+    addQuotes |= YES;
     [mutableValue replaceOccurrencesOfString:@"\"" withString:@"\"\"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, value.length)];
   }
+  
   NSRange seperatorRange = [mutableValue rangeOfString:self.separator options:NSCaseInsensitiveSearch];
-  if(seperatorRange.location != NSNotFound) {
-    addQuotes = YES;
-  }
+  addQuotes |= (seperatorRange.location != NSNotFound);
+  
+  NSRange newlineRange = [mutableValue rangeOfCharacterFromSet:NSCharacterSet.newlineCharacterSet];
+  addQuotes |= (newlineRange.location != NSNotFound);
+  
   return addQuotes ? [NSString stringWithFormat:@"\"%@\"", mutableValue] : [mutableValue copy];
 }
 
